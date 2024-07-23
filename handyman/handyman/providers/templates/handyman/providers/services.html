@@ -1,0 +1,94 @@
+
+{% extends "handyman/base.html" %}
+{% block page-title %}Providers{% endblock %}
+{% block providers %}
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% if request.session.username %}
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+    <a href="{% url 'providers:add_provider' %}" class="add-provider-btn" style="display:inline-block; padding:8px 16px; background-color:#861f41; color:#FFFFFF; border-radius:4px; text-decoration:none; transition:background-color 0.3s; margin-top: 10px;">Add New Provider</a>
+</div>
+{% endif %}
+    {% if provider.id %}
+<a href="{% url 'providers:edit_provider' provider.id %}">Edit</a>
+{% endif %}
+
+
+<ul class="provider-list">
+    {% for handyman in providers %}
+    <li class="provider">
+       <img src="{% static 'img/handyman.jpg' %}" alt="Handyman"/>
+       <h3>{{ handyman.name }}</h3>
+       <p>{{ handyman.description }}</p>
+       <p>Services: {{ handyman.services }}</p>
+
+      {% if request.session.username %}
+      <div class="rating">
+        <p>Rating:</p>
+        <div class="stars" data-id="{{ handyman.id }}" data-rating="{{ handyman.average_rating|default_if_none:"0" }}">
+          {% for star in "12345" %}
+          <span class="star" data-rating="{{ forloop.counter }}">&#9733;</span>
+          {% endfor %}
+          <span class="rating-value"> ({{ handyman.average_rating|floatformat:1 }})</span>
+        </div>
+      </div>
+      {% endif %}
+
+      <a href="{% url 'providers:provider_detail' handyman.id %}">Profile</a>
+{#      <a href="{% url 'providers:edit_provider' handyman.id %}">Edit</a>#}
+
+    </li>
+    {% endfor %}
+</ul>
+
+<script>
+function rateProvider(providerId, rating) {
+    fetch(`/rate_provider/${providerId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': getCookie('csrftoken')  // Ensure CSRF token is correctly retrieved
+        },
+        body: `rating=${rating}`
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            alert('Rating updated to ' + data.rating.toFixed(1));
+            const ratingDisplay = document.querySelector(`[data-id="${providerId}"] .rating-value`);
+            if (ratingDisplay) {
+                ratingDisplay.textContent = ` (${data.rating.toFixed(1)})`;
+            }
+        } else {
+            console.error('Failed to update rating:', data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Fetch error:', error.message);
+    });
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+
+{% endblock %}

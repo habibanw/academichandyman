@@ -1,0 +1,21 @@
+{% extends "handyman/base.html" %}
+
+{% block page-title %}Edit Provider{% endblock %}
+
+{% block providers %}
+<div class="editProvider">
+    <h1>Edit Provider</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ handyman.name }}"><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ handyman.email }}"><br>
+        <label for="services">Services:</label>
+        <input type="text" id="services" name="services" value="{{ handyman.services }}"><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description">{{ handyman.description }}</textarea><br>
+        <input type="submit" value="Update Provider">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "handyman/base.html" %}
+{% load static %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block services %} Services {% endblock %}
+
+
+<!-- Hero Component -->
+<main>
+{% block providers %}
+
+<section class="hero">
+    <div class="hero-background" style="background-image: url('{% static "img/hero.jpg" %}');">
+        <h1>Welcome to our AcademicHandyMan360</h1>
+        <p>
+            Your trusted source for home repairs and carpentry for Virginia Tech
+            Students, and Faculty!.
+        </p>
+        <a href="{% url 'providers:services' %}">Providers</a>
+    </div>
+</section>
+
+
+    <!-- Services portion showing current services provided -->
+    <section class="services">
+          <h2>Our Services</h2>
+        <ul>
+          <li>
+            <strong>Furniture Assembly:</strong> We assemble and install
+            furniture items.
+          </li>
+          <li>
+            <strong>Shelf Installation:</strong> We securely mount shelves on
+            walls.
+          </li>
+          <li>
+            <strong>Drawer Repair:</strong> We fix sticking drawers and replace
+            hardware.
+          </li>
+          <li>
+            <strong>Picture and Mirror Hanging:</strong> We hang wall decor
+            securely.
+          </li>
+          <li>
+            <strong>Door and Lock Repairs:</strong> We fix squeaky doors and
+            locks.
+          </li>
+          <li>
+            <strong>Drywall Repairs:</strong> We patch holes and provide a
+            smooth finish.
+          </li>
+          <li>
+            <strong>Cabinet Repairs:</strong> We repair or replace cabinet
+            hardware.
+          </li>
+        </ul>
+    </section>
+</main>
+{% endblock %}

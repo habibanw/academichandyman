@@ -1,0 +1,107 @@
+.category {
+  background-color: #f9f9f9;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Main Provider/Services Styling */
+
+.provider-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.provider {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.provider img {
+  max-width: 100%;
+  height: auto;
+}
+
+.provider h3 {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.provider p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.provider a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #861f41;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.provider a:hover {
+  background-color: #a83150;
+}
+
+/* Appointments Portion */
+
+.appointments-button {
+  padding: 10px 20px;
+  background-color: #861f41;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.appointments-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.appointments-button:hover {
+  background-color: #5e162d;
+}
+
+/* Add this CSS to style the stars */
+.stars {
+  font-size: 24px;
+  color: #ffd700;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.star {
+  transition: color 0.2s;
+}
+
+.star.active {
+  color: gold;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.rating-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+

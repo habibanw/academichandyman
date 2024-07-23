@@ -1,0 +1,12 @@
+{% extends "handyman/base.html" %}
+
+{% block page-title %}Delete Confirmation{% endblock %}
+
+{% block providers %}
+    <h2>Are you sure you want to delete {{ handyman.name }}?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes, Delete">
+        <a href="{% url 'handyman:services' %}">No, Cancel</a>
+    </form>
+{% endblock %}

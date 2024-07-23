@@ -1,0 +1,55 @@
+/* edit_provider.css */
+
+/* Edit Provider Styling */
+.editProvider {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Consistent with your services background color */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.editProvider h1 {
+    color: #861f41; /* Consistent title color with your theme */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.editProvider label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; /* Using the same color as your body text */
+}
+
+.editProvider input[type="text"],
+.editProvider input[type="email"],
+.editProvider textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.editProvider textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.editProvider input[type="submit"] {
+    background-color: #861f41; /* Button color consistent with your theme */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.editProvider input[type="submit"]:hover {
+    background-color: #5e162d; /* Using the same hover effect color as in your theme */
+}

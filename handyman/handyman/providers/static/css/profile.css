@@ -1,0 +1,34 @@
+.profile {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Consistent with your services background color */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile h2 {
+    color: #861f41;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile p,
+.profile label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.profile input[type="text"],
+.profile input[type="email"],
+.profile textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}

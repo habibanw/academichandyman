@@ -1,0 +1,24 @@
+{% extends "handyman/base.html" %}
+{% block page-title %}Add Provider{% endblock %}
+{% block content %}
+
+{% block add_provider %}
+<h1>Add Provider</h1>
+<form class="addIt" action="{% url 'providers:add_provider' %}" method="post">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" name="add-name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="add-email" required>
+
+    <label for="services">Services:</label>
+    <input type="text" name="add-services" required>
+
+    <label for="description">Description:</label>
+    <textarea name="add-description" required></textarea>
+
+    <input type="submit" value="Add Provider">
+</form>
+    {% endblock %}
+{% endblock %}

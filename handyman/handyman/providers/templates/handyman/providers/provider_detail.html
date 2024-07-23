@@ -1,0 +1,114 @@
+{#{% extends "handyman/base.html" %}#}
+{#{% load static %}#}
+{##}
+{#{% block page-title %}Service Provider Profile{% endblock %}#}
+{##}
+{#{% block profile %}#}
+{#<main>#}
+{#  <section class="profile">#}
+{##}
+{#    {% if messages %}#}
+{#    <ul class="mt-4 p-4 w-full">#}
+{#     {% for message in messages %}#}
+{#      <li class="{% if message.tags %}bg-{{ message.tags }}-100 text-{{ message.tags }}-700{% endif %} px-4 py-2 rounded shadow-md"> {{ message }}</li>#}
+{#      {% endfor %}#}
+{#    </ul>#}
+{#    {% endif %}#}
+{##}
+{##}
+{#    <h1>Provider Profile</h1>#}
+{#    <h2>Name: {{ provider.name }}</h2>#}
+{#    <p>Category: {{ provider.services}}</p>#}
+{#    <p> Description: {{ provider.description }}</p>#}
+{#    <div class="details">#}
+{#      <h3>Services</h3>#}
+{#      <ul>#}
+{#      {% endfor %}#}
+{#        {% for service in provider.services %}#}
+{#            <li>{{ service }}</li>#}
+{#        {% endfor %}#}
+{#      </ul>#}
+{#      <h3>Availability</h3>#}
+{#      <p>Monday to Friday: 9:00 AM - 5:00 PM</p>  <!-- This is hardcoded for now; you might want to make it dynamic later -->#}
+{#    </div>#}
+{#  {% endblock %}#}
+{##}
+{#      {% block schedule-appointment %}#}
+{#    <!-- Schedule appointments -->#}
+{#    <div class="schedule-appointment">#}
+{#      <h3>Schedule Appointment</h3>#}
+{#      <form id="appointment-form">#}
+{#        {% csrf_token %}#}
+{#        <label for="service">Service:</label>#}
+{#        <input type="text" id="service" name="service" placeholder="Enter your service" required>#}
+{#        <label for="date">Select Date:</label>#}
+{#        <input type="date" id="date" name="date" required>#}
+{#        <label for="time">Select Time:</label>#}
+{#        <input type="time" id="time" name="time" required>#}
+{#        <button id="schedule-appointment-button" type="submit">Schedule</button>#}
+{#      </form>#}
+{#    </div>#}
+{#          {% endblock %}#}
+{#  </section>#}
+{#</main>#}
+{##}
+{##}
+{##}
+{##}
+{% extends "handyman/base.html" %}
+{% load static %}
+
+{% block page-title %}Service Provider Profile{% endblock %}
+
+{% block profile %}
+<main class="bg-gray-100 py-8">
+  <section class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+
+    {% if messages %}
+    <ul class="space-y-2">
+     {% for message in messages %}
+      <li class="{% if message.tags %}bg-{{ message.tags }}-100 text-{{ message.tags }}-700{% endif %} px-4 py-2 rounded shadow"> {{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h1 class="text-2xl font-bold text-gray-800 mt-4">Provider Profile</h1>
+    <h2 class="text-xl text-gray-600 mt-2">Name: {{ provider.name }}</h2>
+    <p class="text-gray-600 mt-1">Category: {{ provider.services }}</p>
+    <p class="mt-1 text-gray-600">Description: {{ provider.description }}</p>
+
+    <div class="mt-4">
+      <h3 class="text-lg font-semibold text-gray-700">Services</h3>
+      <ul>
+        <!-- Dynamically list services here -->
+      </ul>
+      <h3 class="text-lg font-semibold text-gray-700 mt-4">Availability</h3>
+      <p class="text-gray-600">Monday to Friday: 9:00 AM - 5:00 PM</p>
+    </div>
+  </section>
+{% endblock %}
+
+{% block schedule-appointment %}
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 mt-6">
+    <h3 class="text-lg font-semibold text-gray-700">Schedule Appointment</h3>
+    <form id="appointment-form" class="mt-4">
+      {% csrf_token %}
+      <div class="flex flex-col space-y-4">
+        <div>
+          <label for="service" class="block text-gray-600">Service:</label>
+          <input type="text" id="service" name="service" placeholder="Enter your service" required class="mt-1 p-2 border border-gray-300 rounded w-full">
+        </div>
+        <div>
+          <label for="date" class="block text-gray-600">Select Date:</label>
+          <input type="date" id="date" name="date" required class="mt-1 p-2 border border-gray-300 rounded w-full">
+        </div>
+        <div>
+          <label for="time" class="block text-gray-600">Select Time:</label>
+          <input type="time" id="time" name="time" required class="mt-1 p-2 border border-gray-300 rounded w-full">
+        </div>
+        <button id="schedule-appointment-button" type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Schedule</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
+</main>

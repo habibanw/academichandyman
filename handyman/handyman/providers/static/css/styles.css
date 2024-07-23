@@ -1,0 +1,289 @@
+/* Here we are resetting the default styles */
+body,
+h1,
+h2,
+p,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  display: flex; /* added this line */
+  flex-direction: column; /* added this line */
+  min-height: 100vh; /* added this line */
+
+}
+
+header {
+  background-color: #861f41;
+  color: #fff;
+  padding: 10px 0;
+}
+/* Nav Styles */
+
+nav ul {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Hero Section Styles/Image Loading */
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.hero a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #861f41;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.hero {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+}
+
+/* Image Source: https://heroimages.com/search/handyman/Premium/Premium/1 */
+.hero-background {
+  background-size: cover;
+  height: 300px;
+  padding: 25px;
+  background-position: center bottom;
+}
+
+footer {
+  background-color: #861f41;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto;
+}
+
+.hero {
+  background-color: white;
+}
+
+.contacts {
+  color: #fff;
+}
+
+.contacts:hover {
+  color: orangered;
+}
+
+/* Social Media Icons */
+
+
+.links,
+.social-media-icons {
+  flex-direction: column;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+
+.fa-facebook {
+  color: white;
+  font-size: 30px;
+  width: 20px;
+  margin: 5px 2px;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fa-twitter {
+  color: white;
+  font-size: 30px;
+  width: 30px;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 40%;
+}
+
+.fa-instagram {
+  color: white;
+  font-size: 30px;
+  width: 20px;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Search Bar Styles */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+/* Search Bar Icon Styling */
+
+.search-bar button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.user-icon {
+  margin-left: 10px;
+}
+
+.user-icon a {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.header {
+  background-color: #861f41;
+  color: #fff;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.signin-button,
+.signout-button {
+  background-color: #861f41;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.signin-button:hover {
+  background-color: #5e162d;
+}
+
+.signout-button:hover {
+  background-color: #5e162d;
+}
+
+/* Responsesive/Mobile Friendly  */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 0;
+  }
+  .header img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .search-bar {
+    margin-right: 0;
+  }
+
+  .user-icon {
+    margin-left: 0;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .links,
+  .social-media-icons {
+    flex-basis: 100%;
+  }
+
+  .contacts {
+    margin: 5px 0;
+  }
+}
+
+/* Services Styling */
+
+.services {
+  background-color: #f9f9f9;
+  padding: 40px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 24px;
+  color: #861f41;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.services ul {
+  list-style: none;
+  padding: 0;
+}
+
+.services li {
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  position: relative;
+}
+
+

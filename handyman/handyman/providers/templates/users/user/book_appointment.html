@@ -1,0 +1,40 @@
+{% extends "handyman/base.html" %}
+
+{% load static %}
+
+{% block page-title %}Book Appointment{% endblock %}
+
+{% block content %}
+<main class="bg-gray-100 py-8">
+    <section class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <h1 class="text-2xl font-bold text-gray-800">Book an Appointment</h1>
+        <form action="{% url 'booking:book_appointment' %}" method="post" class="space-y-6">
+            {% csrf_token %}
+            <div>
+                <label for="service" class="block text-sm font-medium text-gray-700">Service:</label>
+                <select id="service" name="service" required class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <!-- Assuming you have a list of services -->
+                    {% for service in services %}
+                        <option value="{{ service }}">{{ service }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="date" class="block text-sm font-medium text-gray-700">Date:</label>
+                <input type="date" id="date" name="date" required class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+            <div>
+                <label for="time" class="block text-sm font-medium text-gray-700">Time:</label>
+                <select id="time" name="time" required class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    {% for time in times %}
+                        <option value="{{ time }}">{{ time }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                Book Appointment
+            </button>
+        </form>
+    </section>
+</main>
+{% endblock %}
